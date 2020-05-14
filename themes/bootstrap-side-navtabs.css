@@ -1,0 +1,39 @@
+.nav-tabs{
+    margin-bottom: 20px;
+}
+
+.nav-tabs li a .content-header-no-margin{
+    margin-top: 10px;
+}
+
+.nav-tabs li.nav-item{
+    margin-right: 15px;
+}
+
+li a#tab1.active .content-header-no-margin, li a#tab2.active .content-header-no-margin, 
+li a#tab3.active .content-header-no-margin{
+    color: white;
+}
+
+li a#tab1.active , li a#tab2.active , 
+li a#tab3.active {
+    background-color: rgb(70, 22, 107);
+}
+
+@media screen and (max-width: 991px){
+    .nav-tabs li.nav-item{
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .nav-tabs li.nav-item{
+        width: 31%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .nav-tabs li.nav-item{
+        width: 100%;
+    }
+}
