@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="themes/bootstrap/css/bootstrap-grid.min.css" />
     <link rel="stylesheet" href="themes/bootstrap/css/bootstrap-reboot.min.css" />
     <link rel="stylesheet" href="themes/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="themes/faculty-and-researchers.css" />
+    <link rel="stylesheet" href="themes/accordion-transparent-theme.css" />
     <title>
         Home | University at Albany
     </title>
@@ -127,62 +129,15 @@
             </div>
             <div class="main-content col-sm-12 col-md-7 col-lg-8 col-xl-9">
                 <h1 class="content-header">
-                    Advancing Research Excellence
+                    Experts
                 </h1>
                 <p>
-                    As an Carnegie R1 university, the University at Albany is a top-tier research institution advancing cutting-edge research and scholarship across its nine, schools and over forty research centers. The UAlbany Research Funding Navigator is a web-based platform that provides faculty scholars and researchers a wide array of resources and supports with the goal of succeeding in the pursuit of securing extramural sponsored funding for research and training, which is at the core of our public research university. ​
+                    For researchers who want to display their research profiles below, please fill out this <a href = "https://albany.az1.qualtrics.com/jfe/form/SV_ezX1nBYhN10SQ4J">brief questionnaire</a> and we will add you to the page in 2-3 business days. 
+                    For researchers who want to update their profiles, please contact <a href = "mailto:sdat@albany.edu">sdat@albany.edu</a>.
                 </p>
-                <!--div class = "display-flex">
-                    <div class = "col-xl-4 col-lg-6 col-md-12">
-                    <a target = "_blank" href = "covid-19-research-guidance.html">
-                    <div class = "home-logo-container">
-                        <img class = "home-logo" src = "assets/images/campus-message.png">
-                        <p>Guidance to Research Community</p>
-                    </div>
-                    </a>
-                    </div>
-                    <div class = "col-xl-4 col-lg-6 col-md-12">
-                    <a  target = "_blank" href = "UAlbany-suny.html">
-                        <div class = "home-logo-container">
-                            <img class = "home-logo" src = "assets/images/university.png">
-                            <p>Guidance From UAlbany, SUNY and RF - SUNY</p>
-                        </div>
-                        </a>
-                    </div>
-                    <div class = "col-xl-4 col-lg-6 col-md-12">
-                    <a  target = "_blank"  href = "summary-guidance.html">
-                    <div class = "home-logo-container">
-                        <img class = "home-logo" src = "assets/images/federal-guidance.png">
-                        <p>Federal Guidance</p>
-                    </div>
-                    </a>
-                </div>
-                <div class = "col-xl-4 col-lg-6 col-md-12">
-                    <a  target = "_blank" href = "federal-sponsors.html">
-                    <div class = "home-logo-container">
-                        <img class = "home-logo" src = "assets/images/funding.png">
-                        <p>COVID - 19 Funding Opportunities</p>
-                    </div>
-                    </a>
-                </div>
-                <div class = "col-xl-4 col-lg-6 col-md-12">
-                    <a  target = "_blank" href = "covid-faculty.html">
-                    <div class = "home-logo-container">
-                        <img class = "home-logo" src = "assets/images/researcher.png">
-                        <p>COVID-19 Experts</p>
-                    </div>               
-                    </a>
-                </div>
-                <div class = "col-xl-4 col-lg-6 col-md-12">
-                    <a  target = "_blank" href = "FAQ.html">
-                    <div class = "home-logo-container">
-                        <img class = "home-logo" src = "assets/images/FAQ.png">
-                        <p>Frequently Asked Questions</p>
-                    </div>
-                    </a>
-                </div>
-                
-            </div-->
+                <input id = "search-box" placeholder = "Search Ongoing Research/Scholarship..."><button id = "search-button" type = "submit"><i class="fa fa-search"></i></button>
+                <br><span id = "search-box-results">
+                    </span>
             </div>
         </div>
         </div>
@@ -256,8 +211,12 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNRD5G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <script src= "libraries/jquery/jquery-3.3.1.slim.js"></script>
-    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src= "libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" async></script>
     <script> $('.carousel').carousel({interval: 3000, pause: false})</script>
+    <script src = "js/faculty.js" async></script>
+    <script src = "js/search-box.js" async></script>
+    <script src = "js/accordion-faculty.js"></script>
 </body>
 
 </html>
