@@ -74,11 +74,11 @@ let buildContacts = function(agencycontacts){
     {
         if(agencycontacts[i].staticText != '')
         {
-            content = content + '<li>'+ agencycontacts[i].title +'<a href = "'+ agencycontacts[i].link +'">('+ agencycontacts[i].staticText +')</a>';
+            content = content + '<li>'+ agencycontacts[i].title +'<a target="_blank" href = "'+ agencycontacts[i].link +'">('+ agencycontacts[i].staticText +')</a>';
         }
         else
         {
-            content = content + '<li><a href = "'+ agencycontacts[i].link +'">'+ agencycontacts[i].title +'</a>';
+            content = content + '<li><a target="_blank" href = "'+ agencycontacts[i].link +'">'+ agencycontacts[i].title +'</a>';
         }
     }
     content = content + '</ul>';
