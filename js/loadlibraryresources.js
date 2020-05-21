@@ -78,9 +78,12 @@ let buildResourceInfo = function(resource){
                         '<img class="book-cover" src="assets/images/Book-Covers/'+ resource.image +'">'+
                     '</div>'+
                     '<div class="col-xl-10 col-lg-9 p-0">' +
-                        '<h4 class="booktitle"><a href="' + resource.link + '"'+
-                        '   target="_blank">'+ resource.title+'</a></h4>'+
-                        '<p><i class="fas fa-user"></i> <strong>Author: </strong>'+ resource.author +'</p>'+
+                        '<h4 class="booktitle"><a href="' + resource.link + '"';
+    if(resource.type == 'eBooks')
+        content +=      '   target="_blank"><i class="fas fa-file-pdf"></i> '+ resource.title+'</a></h4>';
+    else
+        content +=      '   target="_blank"><i class="fas fa-book"></i> '+ resource.title+'</a></h4>'; 
+    content +=          '<p><i class="fas fa-user"></i> <strong>Author: </strong>'+ resource.author +'</p>'+
                         '<p><i class="fas fa-calendar-day"></i> <strong>Published Year: </strong>'+ resource.year +'</p>'+
                     '</div>'+
                 '</div>';    
