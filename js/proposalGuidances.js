@@ -43,7 +43,8 @@ request.onload = function(){
 
     let navContent = createAgencyNavigation(distinctAgencies, agencyAcronyms);
     let tabContent = buildTabContent(distinctAgencies, proposalGuidance, headers_sort);
-    appendMainContent(maincontentContainer, navContent + tabContent); 
+    appendMainContent(maincontentContainer, navContent + tabContent);
+    appendPostDate(proposalGuidance[0].updateddate) 
 }
 
 let createAgencyNavigation = function(distinctAgencies, agencyAcronyms)

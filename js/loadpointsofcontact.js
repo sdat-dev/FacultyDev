@@ -17,6 +17,7 @@ request.onload = function(){
     let navContent = createAgencyNavigation(distinctAgencies);
     let tabContent = buildTabContent(distinctAgencies, pointsofcontact);
     appendMainContent(maincontentContainer, navContent + tabContent); 
+    appendPostDate(pointsofcontact[0].updateddate) 
 }
 
 let createAgencyNavigation = function(distinctAgencies)
