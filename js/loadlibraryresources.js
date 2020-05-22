@@ -62,6 +62,8 @@ let buildTabContent = function(distinctAgencies, libraryresources){
             tabContent +='<div class="tab-pane fade" id="pills-'+ agencyId +'" role="tabpanel" aria-labelledby="pills-'+ agencyId +'-tab">';
         }
 
+        if(agencyresources[0].acronym != 'General')
+            tabContent += '<h3 class="sponsor-title">'+ agencyresources[0].agency.toString() +'<img src="assets/logos/sponsor_logos/'+ agencyresources[0].acronym.toLowerCase() +'.png"></h3>';
         agencyresources.forEach(function(agencyresource) {
             tabContent += buildResourceInfo(agencyresource);
         });

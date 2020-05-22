@@ -285,6 +285,16 @@ Primary use:    Common.css file used for styling header, footer and
     text-align: center;
 }
 
+.sponsor-title{
+    display: block;
+    font-weight: bold;
+    height: 40px;
+}
+
+.sponsor-title>img{
+    height:40px;
+}
+
 @media only screen and (max-width: 340px)
 {
     .ualbany-logo{

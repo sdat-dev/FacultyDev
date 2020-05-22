@@ -42,7 +42,7 @@ request.onload = function(){
     distinctAgencies = customSort(agencies_sort, distinctAgencies);
 
     let navContent = createAgencyNavigation(distinctAgencies, agencyAcronyms);
-    let tabContent = buildTabContent(distinctAgencies, proposalGuidance, headers_sort);
+    let tabContent = buildTabContent(distinctAgencies, proposalGuidance, headers_sort, agencyAcronyms);
     appendMainContent(maincontentContainer, navContent + tabContent);
     appendPostDate(proposalGuidance[0].updateddate) 
 }
@@ -74,7 +74,7 @@ let createAgencyNavigation = function(distinctAgencies, agencyAcronyms)
     return navigationContent;
 }
 
-let buildTabContent = function(distinctAgencies, proposalGuidance, headers_sort){
+let buildTabContent = function(distinctAgencies, proposalGuidance, headers_sort, agencyAcronyms){
     let tabContent = '<div class="tab-content" id="pills-tabContent">';
     
     for(let i = 0; i< distinctAgencies.length; i++)
@@ -92,6 +92,11 @@ let buildTabContent = function(distinctAgencies, proposalGuidance, headers_sort)
         {
             tabContent +='<div class="tab-pane fade" id="pills-'+ agencyId +'" role="tabpanel" aria-labelledby="pills-'+ agencyId +'-tab">';
         }
+
+        let agencyAcronym = agencyAcronyms.filter(function(acronym){
+            return acronym.Name == agencyGuidance[0].agency;
+        })
+        tabContent += '<h3 class="sponsor-title">'+ agencyGuidance[0].agency.toString() +'<img src="assets/logos/sponsor_logos/'+ agencyAcronym[0].Acronym.toLowerCase() +'.png"></h3>';
         let accordionCounter = 1;
         let distinctHeaders = getDistinctAttributes(agencyGuidance, 'mainheader');
         let accordionElemContent = '';
