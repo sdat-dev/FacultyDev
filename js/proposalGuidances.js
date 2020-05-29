@@ -96,7 +96,7 @@ let buildTabContent = function(distinctAgencies, proposalGuidance, headers_sort,
         let agencyAcronym = agencyAcronyms.filter(function(acronym){
             return acronym.Name == agencyGuidance[0].agency;
         })
-        tabContent += '<h3 class="sponsor-title">'+ agencyGuidance[0].agency.toString() +'<img src="assets/logos/sponsor_logos/'+ agencyAcronym[0].Acronym.toLowerCase() +'.png"></h3>';
+        tabContent += '<div class="sponsor-title-container"><h3 class="sponsor-title"><img src="assets/logos/sponsor_logos/'+ agencyAcronym[0].Acronym.toLowerCase() +'.png">'+ agencyGuidance[0].agency.toString() +'</h3></div>';
         let accordionCounter = 1;
         let distinctHeaders = getDistinctAttributes(agencyGuidance, 'mainheader');
         let accordionElemContent = '';
