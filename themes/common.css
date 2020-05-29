@@ -288,6 +288,7 @@ Primary use:    Common.css file used for styling header, footer and
 .sponsor-title-container{
     height: 70px;
     display: block;
+    margin-bottom: 5px;
 }
 
 .sponsor-title{
@@ -297,8 +298,7 @@ Primary use:    Common.css file used for styling header, footer and
 }
 
 .sponsor-title>img{
-    width:70px;
-    height: auto;
+    height:70px;
 }
 
 @media only screen and (max-width: 340px)
