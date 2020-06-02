@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="themes/side-navigation.css" />
     <link rel="stylesheet" href="themes/custom-fonts.css" />
     <link rel="stylesheet" href="themes/footer.css" />
-    <link rel="stylesheet" href="themes/home.css" />
+    <link rel="stylesheet" href="themes/blog.css" />
     <title>
         Home | University at Albany
     </title>
@@ -118,63 +118,20 @@
         <div class="display-flex">
             <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3">
                 <ul id="navigation-bar">
-                    <li class="navigation-items hover-highlight" id = "active-page"><a href="faculty-home.html">HOME</a></li>
+                    <li class="navigation-items hover-highlight"><a href="faculty-home.html">HOME</a></li>
                     <li class="navigation-items hover-highlight" ><a href="fund-opportunities.html">FUNDING OPPORTUNITIES</a></li>
                     <li class="navigation-items hover-highlight" ><a href="proposal-preparation.html">FUNDER TOOLKIT</a></li>
                     <li class="navigation-items hover-highlight" ><a href="faculty.html">EXPERTS PAGE</a></li>
                     <li class="navigation-items hover-highlight" ><a href="events.html">EVENTS</a></li>
-                    <li class="navigation-items hover-highlight" ><a href="blog.html">BLOG</a></li>
+                    <li class="navigation-items hover-highlight" id = "active-page"><a href="blog.html">BLOG</a></li>
                     <li class="navigation-items hover-highlight" ><a href="#">RESOURCES</a></li>
                 </ul>
             </div>
             <div class="main-content col-sm-12 col-md-7 col-lg-8 col-xl-9">
                 <h1 class="content-header">
-                    Advancing Research Excellence
+                    BLOG
                 </h1>
-                <p>
-                    As an Carnegie R1 university, the University at Albany is a top-tier research institution advancing 
-                    cutting-edge research and scholarship across its nine, schools and over forty research centers. 
-                    The UAlbany Research Funding Navigator is a web-based platform that provides faculty scholars 
-                    and researchers a wide array of resources and supports with the goal of succeeding in the pursuit 
-                    of securing extramural sponsored funding for research and training, which is at the core of our 
-                    public research university. ​
-                </p>
-                <div class = "display-flex">
-                    <div class = "col-xl-4 col-lg-6 col-md-12">
-                        <a href = "fund-opportunities.html">
-                        <div class = "home-logo-container">
-                            <img class = "home-logo" src = "assets/logos/funding.png">
-                            <p>Funding Opportunities</p>
-                        </div>
-                        </a>
-                    </div>
-                    <div class = "col-xl-4 col-lg-6 col-md-12">
-                        <a href = "faculty.html">
-                        <div class = "home-logo-container">
-                            <img class = "home-logo" src = "assets/logos/researcher.png">
-                            <p>Experts</p>
-                        </div>               
-                        </a>
-                    </div>
-                    <div class = "col-xl-4 col-lg-6 col-md-12">
-                        <a href = "events.html">
-                        <div class = "home-logo-container">
-                            <img class = "home-logo" src = "assets/logos/join-a-seminar.png">
-                            <p>Join a Seminar</p>
-                        </div>               
-                        </a>
-                    </div>
-                    <div class = "col-xl-4 col-lg-6 col-md-12">
-                        <a href = "ualbany-research-admin.html">
-                        <div class = "home-logo-container">
-                            <img class = "home-logo" src = "assets/logos/Talk-to-Your-RA.png">
-                            <p>Talk to Your RA</p>
-                        </div>               
-                        </a>
-                    </div>
-                </div>
             </div>
-        </div>
         </div>
     </section>
     <footer id="footer">
@@ -245,9 +202,10 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNRD5G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <script src= "libraries/jquery/jquery-3.3.1.slim.js"></script>
+    <script src="libraries/jquery/jquery-3.3.1.slim.js"></script>
     <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
     <script> $('.carousel').carousel({interval: 3000, pause: false})</script>
+    <script src="js/load-blog-posts.js"></script>
 </body>
 
 </html>
