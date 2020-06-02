@@ -1,4 +1,4 @@
-let requestURL = "data/faculty.json";
+let requestURL = "data/covid-faculty.json";
 let request = new XMLHttpRequest();
 let maincontentContainer = document.getElementsByClassName('main-content')[0];
 request.open('GET', requestURL);
@@ -103,7 +103,7 @@ if(false || !!document.documentMode)
                         faculty.researchDescription +'</p>'+ generateCovidResearchContent(faculty.covidProjects) +'</div>'; 
                     });
                     accordionheaderId = "header" + idCounter;
-                    accordioncontent += '<div class = "accordion-container"><a id = "'+ accordionheaderId +'" href = "#'+ accordionheaderId + '"><div class = "accordion-header"><h3 class = "content-header-no-margin">'+ department + '</h3></div></a><div class = "accordion-content">'+ departmentFacultyContent +'</div></div>';
+                    accordioncontent += '<div class = "accordion-container"><div class = "accordion-header"><h3 class = "content-header-no-margin">'+ department + '</h3></div><div class = "accordion-content">'+ departmentFacultyContent +'</div></div>';
                     idCounter++;
                 });
 
