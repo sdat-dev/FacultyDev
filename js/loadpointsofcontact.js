@@ -61,7 +61,7 @@ let buildTabContent = function(distinctAgencies, pointsofcontact){
         {
             tabContent +='<div class="tab-pane fade" id="pills-'+ agencyId +'" role="tabpanel" aria-labelledby="pills-'+ agencyId +'-tab">';
         }
-        tabContent += '<h3 class="sponsor-title">'+ agencycontacts[0].agency.toString() +'<img src="assets/logos/sponsor_logos/'+ agencycontacts[0].acronym.toLowerCase() +'.png"></h3>';
+        tabContent += '<h3 class="sponsor-title"><img src="assets/logos/sponsor_logos/'+ agencycontacts[0].acronym.toLowerCase() +'.png">'+ agencycontacts[0].agency.toString() +'</h3>';
         tabContent += buildContacts(agencycontacts);
         tabContent += '</div>';
 
