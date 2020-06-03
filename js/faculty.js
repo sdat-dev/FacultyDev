@@ -1,4 +1,4 @@
-let requestURL = "data/covid-faculty.json";
+let requestURL = "data/faculty.json";
 let request = new XMLHttpRequest();
 let maincontentContainer = document.getElementsByClassName('main-content')[0];
 request.open('GET', requestURL);
