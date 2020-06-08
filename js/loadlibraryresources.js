@@ -63,7 +63,7 @@ let buildTabContent = function(distinctAgencies, libraryresources){
         }
 
         if(agencyresources[0].acronym != 'General')
-            tabContent += '<h3 class="sponsor-title"><img src="assets/logos/sponsor_logos/'+ agencyresources[0].acronym.toLowerCase() +'.png">'+ agencyresources[0].agency.toString() +'</h3>';
+            tabContent += '<h3 class="sponsor-title"><img class="logo" src="assets/logos/sponsor_logos/'+ agencyresources[0].acronym.toLowerCase() +'.png">'+ agencyresources[0].agency.toString() +'</h3>';
         agencyresources.forEach(function(agencyresource) {
             tabContent += buildResourceInfo(agencyresource);
         });

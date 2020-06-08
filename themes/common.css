@@ -301,6 +301,10 @@ Primary use:    Common.css file used for styling header, footer and
     height:70px;
 }
 
+.logo{
+    margin-right: 10px;
+}
+
 @media only screen and (max-width: 340px)
 {
     .ualbany-logo{
