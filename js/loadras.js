@@ -7,9 +7,11 @@ request.responseType = 'json';
 request.send();
 request.onload = function(){
     let content = '';
-    const raslistjson = request.response;
+    const rasresourcejson = request.response;
     //condition for checking if browser is Internet Explorer
-    let ralist =  ((false || !!document.documentMode))? JSON.parse(raslistjson): raslistjson; 
+    let rasresource =  ((false || !!document.documentMode))? JSON.parse(rasresourcejson): rasresourcejson; 
+    let ralist = rasresource.departmentRecords;
+    let teams = rasresource.rateams;
     let distinctadmins = getDistinctAdmins(ralist);
     content += '<div class="display-flex">';
     distinctadmins.forEach(function(admin){
@@ -19,7 +21,11 @@ request.onload = function(){
         content += createadminelement(departments);
     });
     content += '</div>';
-    appendMainContent(maincontentContainer, content);
+    content += createteamelement(teams);
+    let mainContentElement = document.createElement('div');
+    mainContentElement.id = 'accordionExample';
+    mainContentElement.innerHTML = content.trim();
+    maincontentContainer.appendChild(mainContentElement);
 }
 
 let getDistinctAdmins = function(ralist){
@@ -37,10 +43,10 @@ let getDistinctAdmins = function(ralist){
 let createadminelement = function(departments){
     let content = '';
     let adminrecord = departments[0];
-    content +=  '<div class= "col-lg-4 col-md-4 col-sm-6 search-container">' +
+    content +=  '<div class= "col-lg-4 col-md-4 col-sm-6 search-container" id="'+ adminrecord.ra.name.replace(/ /g, '') +'">' +
                 '   <p class="admin-info"><img class="admin-img" src="assets/images/ras/' + adminrecord.ra.photo + '" alt="">' +       
                 '   <br><span class="title"><strong>' + adminrecord.ra.name + '</strong>' +
-                '   <br><span class="email"><a href="mailto:'+ adminrecord.ra.email + '">'+ adminrecord.ra.email+ '</a></span></span>' +
+                '   <br><span class="email"><a href="mailto:'+ adminrecord.ra.email + '">&nbsp;'+ adminrecord.ra.email+ '</a></span></span>' +
                 '   <br><span class="departments"><strong>Departments:</strong><br>';
     departments.forEach(function(department){
         content += department.name + '<br>'
@@ -48,5 +54,22 @@ let createadminelement = function(departments){
     content +=  '       </span>'+ 
                 '   </p>' +
                 '</div>';
+    return content;
+} 
+
+let createteamelement = function(teams){
+    let distinctteams = getDistinctAttributes(teams, 'team');
+    let content = '<div id = "rateams">';
+    distinctteams.forEach(function(team){
+        let members = teams.filter(function(record){
+            return record.team == team;
+        })
+        content += '<ul id='+ team.replace(/ /g, '') +'>';
+        members.forEach(function(member){
+            content += '<li>' + member.member.replace(/ /g, '') +'</li>';
+        })
+        content += '</ul>';
+    });
+    content += '</div>';
     return content;
 } 

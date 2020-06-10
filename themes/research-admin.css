@@ -22,7 +22,7 @@
 }
 
 .email::before{
-    content: "Email: ";
+    content: "Email:";
     font-style:normal;
     font-weight: bold;
     text-decoration: none;
@@ -47,10 +47,14 @@
     background-color: #000000;
     color: white;
     position: relative;
-    top: 3px;
+    top: -1px;
     left: -1px;
 }
 
 .departments{
+    display: none;
+}
+
+#rateams{
     display: none;
 }
