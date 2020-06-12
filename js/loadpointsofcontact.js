@@ -61,7 +61,7 @@ let buildTabContent = function(distinctAgencies, pointsofcontact){
         {
             tabContent +='<div class="tab-pane fade" id="pills-'+ agencyId +'" role="tabpanel" aria-labelledby="pills-'+ agencyId +'-tab">';
         }
-        tabContent += '<h3 class="sponsor-title"><img class="logo" src="assets/logos/sponsor_logos/'+ agencycontacts[0].acronym.toLowerCase() +'.png">'+ agencycontacts[0].agency.toString() +'</h3>';
+        tabContent += '<div class="sponsor-title-container"><h3 class="sponsor-title"><img class="logo" src="assets/logos/sponsor_logos/'+ agencycontacts[0].acronym.toLowerCase() +'.png">'+ agencycontacts[0].agency.toString() +'</h3></div>';
         tabContent += buildContacts(agencycontacts);
         tabContent += '</div>';
 
@@ -71,18 +71,57 @@ let buildTabContent = function(distinctAgencies, pointsofcontact){
 }
 
 let buildContacts = function(agencycontacts){
-    let content = '<ul class = "sub-list">';
-    for(let i = 0; i< agencycontacts.length; i++)
-    {
-        if(agencycontacts[i].staticText != '')
+    let accordionCounter = 1; 
+    let contactElem = '<div class = "accordion" id = "accordionExample">';
+    let distinctDirectorates = getDistinctAttributes(agencycontacts, 'directorate');
+    distinctDirectorates.forEach(function(directorate) {
+        let divisions = agencycontacts.filter(function(contact){
+            return contact.directorate == directorate;
+        }); 
+        let divisionElement = buildDivisionElement(divisions);
+        let headerId = "collapse" + accordionCounter;
+        let headingId = "heading" + accordionCounter;
+        if(directorate == '')
         {
-            content = content + '<li>'+ agencycontacts[i].title +'<a target="_blank" href = "'+ agencycontacts[i].link +'">('+ agencycontacts[i].staticText +')</a>';
+            contactElem+= divisionElement;
         }
         else
         {
-            content = content + '<li><a target="_blank" href = "'+ agencycontacts[i].link +'">'+ agencycontacts[i].title +'</a>';
+            contactElem+= generateAccordionElem(headerId, headingId, divisions[0].directorate, divisionElement);
+            accordionCounter++;  
+        }     
+    });
+    contactElem += '</div>';
+    return contactElem;
+}
+
+let buildDivisionElement = function(divisions){
+    let content = '';
+    if(divisions.length === 1){
+        if(divisions[0].staticText != '')
+        {
+            content = content + '<p>'+ divisions[0].title +' <a target="_blank" href = "'+ divisions[0].link +'">('+ divisions[0].staticText +')</a></p>';
         }
+        else
+        {
+            content = content + '<p><a target="_blank" href = "'+ divisions[0].link +'">'+ divisions[0].title +'</a></p>';
+        }
+        return content;
     }
-    content = content + '</ul>';
-    return content;
+    else{
+        content = '<ul class = "sub-list">';
+        for(let i = 0; i< divisions.length; i++)
+        {
+            if(divisions[i].staticText != '')
+            {
+                content = content + '<li>'+ divisions[i].title +'<a target="_blank" href = "'+ divisions[i].link +'">('+ divisions[i].staticText +')</a></li>';
+            }
+            else
+            {
+                content = content + '<li><a target="_blank" href = "'+ divisions[i].link +'">'+ divisions[i].title +'</a></li>';
+            }
+        }
+        content = content + '</ul>';
+        return content;
+    }
 }

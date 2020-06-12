@@ -286,15 +286,13 @@ Primary use:    Common.css file used for styling header, footer and
 }
 
 .sponsor-title-container{
-    height: 70px;
-    display: block;
+    display: inline-block;
     margin-bottom: 5px;
 }
 
 .sponsor-title{
     display: block;
     font-weight: bold;
-    height: 70px;
 }
 
 .sponsor-title>img{
