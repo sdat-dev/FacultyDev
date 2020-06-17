@@ -55,6 +55,16 @@ let generateAccordionElem = function(divId, bootlabelId, accordionHeader, accord
     return accordionElem;
 }
 
+let generateAccordionSubElem = function(level, divId, bootlabelId, accordionHeader, accordionContent){
+    var hyperno = level + 2;
+    let accordionElem =  '<div class = "card"><div class="card-header level'+ level +'" id="'+ bootlabelId + '">' +
+                          '<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#'+ divId + '" aria-expanded="true" aria-controls="' + divId + '">'+
+                            '<h'+ hyperno +' class = "content-header-no-margin">' + accordionHeader + '<i class="fas fa-chevron-down"></i></h'+ hyperno +'></button></div>'
+                        + '<div id="'+ divId + '" class = "collapse" aria-labelledby= "'+ bootlabelId + '"> <div class = "card-body">'
+                        + accordionContent +'</div></div></div>';  
+    return accordionElem;
+}
+
 let generateAccordionGuideanceElem =  function(divId, bootlabelId, accordionHeader, accordionContent, imageSrc){
     let accordionElem =  '<div class = "card"><div class="card-header" id="'+ bootlabelId + '">' +
                           '<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#'+ divId + '" aria-expanded="true" aria-controls="' + divId + '">'+

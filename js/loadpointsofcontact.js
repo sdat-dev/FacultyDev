@@ -140,7 +140,7 @@ let buildContacts = function(agencycontacts){
                             level4Elem += buildDivisionElement(level4s, 'level4');
                             let headerId3 = "collapse" + accordionCounter;
                             let headingId3 = "heading" + accordionCounter;
-                            level3Elem+= generateAccordionElem(headerId3, headingId3, level, level4Elem);
+                            level3Elem+= generateAccordionSubElem(3, headerId3, headingId3, level, level4Elem);
                             accordionCounter++;
                         }); 
                         level3Elem += '</div>';
@@ -148,7 +148,7 @@ let buildContacts = function(agencycontacts){
                     }
                     let headerId2 = "collapse" + accordionCounter;
                     let headingId2 = "heading" + accordionCounter;
-                    level2Elem+= generateAccordionElem(headerId2, headingId2, level, level3Elem);
+                    level2Elem+= generateAccordionSubElem(2, headerId2, headingId2, level, level3Elem);
                     accordionCounter++;
                 });
                 level2Elem += '</div>';
@@ -156,7 +156,7 @@ let buildContacts = function(agencycontacts){
             }  
             let headerId1 = "collapse" + accordionCounter;
             let headingId1 = "heading" + accordionCounter;
-            contactElem+= generateAccordionElem(headerId1, headingId1, level, level2Elem);
+            contactElem+= generateAccordionSubElem(1, headerId1, headingId1, level, level2Elem);
             accordionCounter++;        
         });
         contactElem += '</div>';
