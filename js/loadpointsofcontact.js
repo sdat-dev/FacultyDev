@@ -74,64 +74,94 @@ let buildTabContent = function(distinctAgencies, pointsofcontact){
 //this is nestted accordion that can go upto 4 levels
 let buildContacts = function(agencycontacts){
     let accordionCounter = 1; 
-    let contactElem = '<div class = "accordion" id = "accordionLevel1">';
-    let distinctLevel1s = getDistinctAttributes(agencycontacts, 'level1');
-    distinctLevel1s.forEach(function(level) {
-        let level2s = agencycontacts.filter(function(contact){
-            return contact.level1 == level;
-        }); 
-        if(level2s.length == 1 && level2s[0].level2 == '')
-        {
-            contactElem += buildDivisionElement(level2s, 'level1');
-        }
-        else{
-            let level2Elem = '<div class = "accordion" id = "accordionLevel2">';
-            let distinctLevel2s = getDistinctAttributes(level2s, 'level2');
-            distinctLevel2s.forEach(function(level){
-                let level3s = level2s.filter(function(contact){
-                    return contact.level2 == level;
-                });
-                if(level3s.length == 1 && level3s[0].level3 == '')
-                {
-                    level2Elem += buildDivisionElement(level3s, 'level2');
-                }
-                else
-                {
-                    let level3Elem = '<div class = "accordion" id = "accordionLevel3">';
-                    let distinctLevel3s = getDistinctAttributes(level3s, 'level3');
-                    distinctLevel3s.forEach(function(level){
-                        let level4s = level3s.filter(function(contact){
+    let contactElem = '';
+    let level1s = agencycontacts.filter(function(contact){
+        return contact.level2 == '';
+    });
+    //if there is no level2 then it is a simple list
+    if(level1s.length > 0)
+    {
+        contactElem += buildDivisionElement(level1s, 'level1');
+    }
+    //if there is level 2 then it is accordion
+    let level1as = agencycontacts.filter(function(contact){
+        return contact.level2 != '';
+    });
+
+    if(level1as.length > 0)
+    {
+        contactElem += '<div class = "accordion" id = "accordionLevel1">';
+        let distinctLevel1s = getDistinctAttributes(level1as, 'level1');
+        distinctLevel1s.forEach(function(level) {
+            let level2Elem = '';
+            //filter level2 without level3
+            let level2s = level1as.filter(function(contact){
+                return contact.level1 == level && contact.level3 == '';
+            }); 
+            //for level2s with out level3 build simple list
+            if(level2s.length > 0)
+            {
+                level2Elem += buildDivisionElement(level2s, 'level2');
+            }
+            //filter level2s with level3 
+            let level2as = level1as.filter(function(contact){
+                return contact.level1 == level && contact.level3 != '';
+            }); 
+            //build accordion
+            if(level2as.length > 0)
+            {
+                level2Elem += '<div class = "accordion" id = "accordionLevel2">';
+                let distinctLevel2s = getDistinctAttributes(level2as, 'level2');
+                distinctLevel2s.forEach(function(level){
+                    let level3Elem = '';
+                    //filter level3 without level4
+                    let level3s = level2as.filter(function(contact){
+                        return contact.level2 == level && contact.level4 == '';
+                    });
+                    //for level3s with out level4 build simple list
+                    if(level3s.length > 0)
+                    {
+                        level3Elem+= buildDivisionElement(level3s, 'level3');
+                    }
+                    //filter level3 with level4
+                    let level3as = level2as.filter(function(contact){
+                        return contact.level2 == level && contact.level4 != '';
+                    });
+                    //build accordion
+                    if(level3as.length > 0)
+                    {
+                        level3Elem += '<div class = "accordion" id = "accordionLevel3">';
+                        let distinctLevel3s = getDistinctAttributes(level3as, 'level3');
+                        distinctLevel3s.forEach(function(level){
+                        let level4s = level3as.filter(function(contact){
                                 return contact.level3 == level;
                             });
-                            if(level4s.length == 1 && level4s[0].level4 == '')
-                            {
-                                level3Elem += buildDivisionElement(level3s, 'level3');
-                            }
-                            else
-                            {
-                                let level4Elem = '';
-                                level4Elem += buildDivisionElement(level4s, 'level4');
-                                let headerId3 = "collapse" + accordionCounter;
-                                let headingId3 = "heading" + accordionCounter;
-                                level3Elem+= generateAccordionElem(headerId3, headingId3, level4s[0].level3, level4Elem);
-                                accordionCounter++;
-                            }
+                            let level4Elem = '';
+                            level4Elem += buildDivisionElement(level4s, 'level4');
+                            let headerId3 = "collapse" + accordionCounter;
+                            let headingId3 = "heading" + accordionCounter;
+                            level3Elem+= generateAccordionElem(headerId3, headingId3, level, level4Elem);
+                            accordionCounter++;
                         }); 
-                    level3Elem += '</div>';
+                        level3Elem += '</div>';
+                        //end level3 accordion
+                    }
                     let headerId2 = "collapse" + accordionCounter;
                     let headingId2 = "heading" + accordionCounter;
-                    level2Elem+= generateAccordionElem(headerId2, headingId2, level3s[0].level2, level3Elem);
+                    level2Elem+= generateAccordionElem(headerId2, headingId2, level, level3Elem);
                     accordionCounter++;
-                }
-            });
-            level2Elem += '</div>';
+                });
+                level2Elem += '</div>';
+                //end level2 accordion
+            }  
             let headerId1 = "collapse" + accordionCounter;
             let headingId1 = "heading" + accordionCounter;
-            contactElem+= generateAccordionElem(headerId1, headingId1, level2s[0].level1, level2Elem);
-            accordionCounter++;      
-        }    
-    });
-    contactElem += '</div>';
+            contactElem+= generateAccordionElem(headerId1, headingId1, level, level2Elem);
+            accordionCounter++;        
+        });
+        contactElem += '</div>';
+         //end level1 accordion
+    }
     return contactElem;
 }
 
