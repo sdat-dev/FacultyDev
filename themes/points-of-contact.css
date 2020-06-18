@@ -15,35 +15,52 @@
 }
 
 .level2{
-    color: #693296;
+    color: #EEB211;
+}
+
+.level2:hover{
+    color: white;
+    background-color: #EEB211;
 }
 
 .level2 > button.btn-link{
-    background-color: #693296;
+    background-color: #EEB211;
+    color:black;
     padding: 7px;
 }
 
 .level2 > button.btn-link .content-header-no-margin{
-    background-color: #693296;
+    background-color: #EEB211;
+    color:black;
 }
 
-.level2 > .fa-chevron-down{
+.level2 > button.btn-link .content-header-no-margin > .fa-chevron-down{
     line-height: 28px;
+    color:black;
 }
 
 .level3{
-    background-color: #965ac7;
+    background-color: #d1d1d1;
+    color: #46166C;
+}
+
+.level3:hover{
+    color: white;
+    background-color: #d1d1d1;
 }
 
 .level3 > button.btn-link{
-    background-color: #965ac7;
+    background-color: #d1d1d1;
+    color: #46166C;
     padding: 5px;
 }
 
 .level3 > button.btn-link .content-header-no-margin{
-    background-color: #965ac7;
+    background-color: #d1d1d1;
+    color: #46166C;
 }
 
-.level3 > .fa-chevron-down{
+.level3 > button.btn-link .content-header-no-margin > .fa-chevron-down{
     line-height: 24px;
+    color: #46166C;
 }
