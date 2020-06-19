@@ -90,17 +90,37 @@ let buildVideos = function(agencyvideos){
 
 let buildVideoContent = function(videos){
     let content = '<ul class = "sub-list">';
-    for(let i = 0; i< videos.length; i++)
+    let weblinks = videos.filter(function(video){
+                        return video.link.includes("youtube") == false;
+                    });
+    
+    for(let i = 0; i< weblinks.length; i++)
     {
-        if(videos[i].text != '')
+        if(weblinks[i].text != '')
         {
-            content = content + '<li><a target="_blank" href = "'+ videos[i].link +'">'+ videos[i].title +' ('+ videos[i].text +')</a></li>';
+            content = content + '<li><a target="_blank" href = "'+ weblinks[i].link +'">'+ weblinks[i].title +' ('+ weblinks[i].text +')</a></li>';
         }
         else
         {
-            content = content + '<li><a target="_blank" href = "'+ videos[i].link +'">'+ videos[i].title +'</a></li>';
+            content = content + '<li><a target="_blank" href = "'+ weblinks[i].link +'">'+ weblinks[i].title +'</a></li>';
         }
     }
     content = content + '</ul>';
+    let youtubelinks = videos.filter(function(video){
+        return video.link.includes("youtube") == true;
+    });
+    
+    content += '<div class="display-flex">';
+    for(let i = 0; i< youtubelinks.length; i++)
+    {
+        let youtubelink = youtubelinks[i].link.replace('watch?v=', 'embed/');
+        content +=  '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 video-padding-margin">'+
+                    '   <div class="videoWrapper">' + 
+                    '       <iframe src="' + youtubelink + '" allowfullscreen="true"></iframe>' +
+                    '   </div>' +
+                    '   <h5 class="video-title">' + youtubelinks[i].title + '</h5>'+
+                    '</div>';
+    }
+    content += '</div>';
     return content;
 }
