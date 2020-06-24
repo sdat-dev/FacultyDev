@@ -1,0 +1,44 @@
+.news-post {
+    margin-bottom: 50px;
+    clear: both;
+    overflow: hidden;
+}
+
+.news-title {
+    color: #46166C;
+    font-family: 'TradeGothicLTStd-BdCn20', Helvetica, Arial, sans-serif;
+}
+
+.news-image {
+    float: right;
+    width: 25%;
+    margin: 0 0 1em 1.5em;
+}
+
+.news-image img {
+    max-width: 100%;
+}
+
+.news-meta-data {
+    font-size: 15px;
+    line-height: 13px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.meta-item {
+    opacity: .6;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.news-content {
+    line-height: 1.5;
+    margin-top: 1em;
+}
+
+.more{
+    color: blue;
+}
