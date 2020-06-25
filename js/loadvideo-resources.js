@@ -74,6 +74,12 @@ let buildVideos = function(agencyvideos){
     let accordionCounter = 1; 
     let videoElem = '<div class = "accordion" id = "accordionExample">';
     let distinctTypes = getDistinctAttributes(agencyvideos, 'type');
+    let index = distinctTypes.indexOf('Video Resources');
+    if(index != -1)
+    {
+        distinctTypes.splice(index, 1);
+        distinctTypes.unshift('Video Resources');
+    }
     distinctTypes.forEach(function(type) {
         let videos = agencyvideos.filter(function(video){
             return video.type == type;
@@ -90,8 +96,10 @@ let buildVideos = function(agencyvideos){
 
 let buildVideoContent = function(videos){
     let content = '<ul class = "sub-list">';
+    //var regex = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
     let weblinks = videos.filter(function(video){
-                        return video.link.includes("youtube") == false;
+                        return (video.link.includes("youtube") == false && 
+                        video.link.includes("youtu.be") == false);
                     });
     
     for(let i = 0; i< weblinks.length; i++)
@@ -107,13 +115,25 @@ let buildVideoContent = function(videos){
     }
     content = content + '</ul>';
     let youtubelinks = videos.filter(function(video){
-        return video.link.includes("youtube") == true;
+        return (video.link.includes("youtube") == true ||
+        video.link.includes("youtu.be") == true);
     });
     
     content += '<div class="display-flex">';
     for(let i = 0; i< youtubelinks.length; i++)
     {
-        let youtubelink = youtubelinks[i].link.replace('watch?v=', 'embed/');
+        let youtubelink = '';
+        let link = youtubelinks[i].link;
+        if(link.includes("youtube") == true){
+            youtubelink = link.replace('watch?v=', 'embed/');
+        }          
+        else if(link.includes("youtu.be") == true)
+        {
+            youtubelink = link.replace('youtu.be', 'www.youtube.com/embed/');
+        }
+        var ampersandPosition = youtubelink.indexOf('&');
+        if(ampersandPosition != -1)
+            youtubelink =  youtubelink.substring(0, ampersandPosition);
         content +=  '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 video-padding-margin">'+
                     '   <div class="videoWrapper">' + 
                     '       <iframe src="' + youtubelink + '" allowfullscreen="true"></iframe>' +
