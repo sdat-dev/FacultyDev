@@ -124,8 +124,15 @@ let buildTabContent = function(distinctAgencies, proposalGuidance, headers_sort,
            }
            let headerId = "collapse" + accordionCounter;
            let headingId = "heading" + accordionCounter;
-           accordionElemContent+= generateAccordionElem(headerId, headingId, header, linkcontent);
-           accordionCounter++;
+           if(header.trim() == '')
+           {
+            accordionElemContent+= linkcontent;
+           }
+           else
+           {
+            accordionElemContent+= generateAccordionElem(headerId, headingId, header, linkcontent);
+            accordionCounter++;
+           }
         });
         tabContent = tabContent + wrapAccordionContent(accordionElemContent) + '</div>';
     }
@@ -134,12 +141,41 @@ let buildTabContent = function(distinctAgencies, proposalGuidance, headers_sort,
 }
 
 let buildLinkContent = function(guidance){
-    let content = '<ul class = "sub-list">';
-    for(let i = 0; i< guidance.length; i++)
+    let content = '';
+    let i = 0;
+    for(i; i< guidance.length && guidance[i].link.trim() == ''; i++)
     {
-        content = content + '<li><a href = "'+ guidance[i].link +'">'+ guidance[i].title+'</a>';
-        let staticTextContent = (guidance[i].staticText == '')? '</li>': ' - ' + guidance[i].staticText + '</li>';
-        content = content + staticTextContent;
+        if(guidance[i].staticText.trim() != '')
+        {
+            content += '<p>'+ guidance[i].staticText +'</p>';
+        }
+    }
+
+    content += '<ul class = "sub-list">';
+    for(i; i< guidance.length; i++)
+    {
+        if(guidance[i].link.trim() != '' && guidance[i].title.trim() != '' )
+        {
+            content = content + '<li><a href = "'+ guidance[i].link +'">'+ guidance[i].title+'</a>';
+            if(i + 1 < guidance.length && guidance[i+1].title.trim() == '')
+            {
+                content += guidance[i].staticText.trim() != '' ? ' - ' + guidance[i].staticText : '';
+                content += '<ul class = "sub-list">'; 
+            }
+            else
+            {
+                let staticTextContent = (guidance[i].staticText == '')? '</li>': ' - ' + guidance[i].staticText + '</li>';
+                content = content + staticTextContent;
+            } 
+        }
+        else
+        {
+            content += guidance[i].staticText != '' ? '<li>' + guidance[i].staticText + '</li>' : '';
+            if((i + 1 < guidance.length && guidance[i+1].title.trim() != '')|| i+1 == guidance.length)
+            {
+                content += '</ul></li>';
+            }
+        }
     }
     content = content + '</ul>';
     return content;
