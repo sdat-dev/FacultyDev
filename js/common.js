@@ -6,7 +6,6 @@ let getDistinctAttributes = function(objects, attribute){
         return a.indexOf(v) === i;
      });
 
-    distinctAttributes.sort();
     return distinctAttributes;
 }
 

@@ -74,12 +74,6 @@ let buildVideos = function(agencyvideos){
     let accordionCounter = 1; 
     let videoElem = '<div class = "accordion" id = "accordionExample">';
     let distinctTypes = getDistinctAttributes(agencyvideos, 'type');
-    let index = distinctTypes.indexOf('Video Resources');
-    if(index != -1)
-    {
-        distinctTypes.splice(index, 1);
-        distinctTypes.unshift('Video Resources');
-    }
     distinctTypes.forEach(function(type) {
         let videos = agencyvideos.filter(function(video){
             return video.type == type;
