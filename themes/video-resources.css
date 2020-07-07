@@ -7,8 +7,15 @@
 
 .videoWrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
     height: 0;
+  }
+
+  .wide-screen {
+    padding-bottom: 56.25%;
+  }
+  
+  .standard {
+    padding-bottom: 75%;
   }
 
 .videoWrapper iframe {
@@ -25,4 +32,9 @@
 .video-padding-margin{
     padding: 0px;
     margin-bottom: 15px;
+}
+
+.videoWrapper video{
+    width: 85%;
+    padding-top: 8%;
 }

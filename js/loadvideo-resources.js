@@ -93,7 +93,8 @@ let buildVideoContent = function(videos){
     //var regex = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
     let weblinks = videos.filter(function(video){
                         return (video.link.includes("youtube") == false && 
-                        video.link.includes("youtu.be") == false);
+                        video.link.includes("youtu.be") == false &&
+                        video.link.includes(".mp4") == false);
                     });
     
     for(let i = 0; i< weblinks.length; i++)
@@ -110,7 +111,8 @@ let buildVideoContent = function(videos){
     content = content + '</ul>';
     let youtubelinks = videos.filter(function(video){
         return (video.link.includes("youtube") == true ||
-        video.link.includes("youtu.be") == true);
+        video.link.includes("youtu.be") == true || 
+        video.link.includes(".mp4") == true);
     });
     
     content += '<div class="display-flex">';
@@ -125,13 +127,15 @@ let buildVideoContent = function(videos){
         {
             youtubelink = link.replace('youtu.be', 'www.youtube.com/embed/');
         }
+        else{
+            youtubelink = link;
+        }
+
         var ampersandPosition = youtubelink.indexOf('&');
         if(ampersandPosition != -1)
             youtubelink =  youtubelink.substring(0, ampersandPosition);
         content +=  '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 video-padding-margin">'+
-                    '   <div class="videoWrapper">' + 
-                    '       <iframe src="' + youtubelink + '" allowfullscreen="true"></iframe>' +
-                    '   </div>' +
+                    '   <div class="videoWrapper wide-screen"><iframe  src="'+ youtubelink +'" allowfullscreen="true"></iframe></div>' +
                     '   <h5 class="video-title">' + youtubelinks[i].title + '</h5>'+
                     '</div>';
     }
