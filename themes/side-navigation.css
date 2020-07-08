@@ -39,7 +39,7 @@ Primary use:    side-navigation.css file used for styling components
 }
 
 .navigation-items {
-    border-bottom: 2px solid #909090;
+    border-bottom: 3px solid #e0e0e0;
     color: #46166B;
     font-weight: 400;
     list-style-type: none;
@@ -47,7 +47,7 @@ Primary use:    side-navigation.css file used for styling components
 }
 
 #expanded-navigation-item {
-    border-bottom: 2px solid #909090;
+    border-bottom: 3px solid #e0e0e0;
     color: #46166B;
     font-weight: 400;
     list-style-type: none;
@@ -63,11 +63,13 @@ Primary use:    side-navigation.css file used for styling components
 
 #navigation-bar {
     list-style-type: none;
-    font-family: 'TradeGothicLTStd-BdCn20', Helvetica, Arial, sans-serif;
     font-size: 20px;
     padding-bottom: 30px;
     position: sticky;
     top: 105px;
+    font-family: 'PublicSans', sans-serif!important;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #sub-navigation-bar {
@@ -78,19 +80,19 @@ Primary use:    side-navigation.css file used for styling components
     color: #46166B;
     margin-top: 10px;
     padding: 10px 10px 10px 30px;
-    border-top: 2px solid #909090;
+    border-top: 2px solid #e0e0e0;
 }
 
 .last-sub-navigation-item {
     color: #46166B;
     padding: 10px 10px 10px 30px;
-    border-top: 2px solid #909090;
+    border-top: 2px solid #e0e0e0;
 }
 
 .sub-navigation-items {
     color: #46166B;
     padding: 10px 10px 10px 30px;
-    border-top: 2px solid #909090;
+    border-top: 2px solid #e0e0e0;
 }
 
 @media only screen and (min-width: 768px) {
