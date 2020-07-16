@@ -2,7 +2,6 @@
     position: fixed;
     z-index:99;
     width:100%;
-    
 }
 
 .bor {
@@ -47,7 +46,6 @@
     display: block;
     list-style: none;
     padding-left: 20px;
-    
 }
 
 .col2 {
@@ -203,7 +201,6 @@
     padding: 6px 13px 0 13px
 }
 
-
 .headingList {
     font-family: 'TradeGothicLTStd-BdCn20', Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -212,12 +209,8 @@
     font-weight: 400;
     color: #fff;
     padding: 0 0 17px;
-    display: block;
-    
-
+    display: block;  
 }
-
-
 
 .listSub {
     display: block;
@@ -242,8 +235,6 @@
 .linkforlist {
     color: white;
 }
-
-
 
 .icon_new {
     display: block;
@@ -283,14 +274,10 @@
     color: white;
 }
 
-
-
-
 ul .listSub a:hover, ul .listSub a:focus {
     color:white;
-   }
-
+}
    
-   .fa-facebook-f:hover{
+.fa-facebook-f:hover {
     color:yellow;
-  }
+}
