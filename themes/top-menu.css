@@ -1,11 +1,9 @@
 #mega-menu{
-position: fixed;
-z-index:99;
-width:100%;
+    position: fixed;
+    z-index:99;
+    width:100%;
     
 }
-
-
 
 .bor {
     margin-top: 1em;
@@ -22,14 +20,13 @@ width:100%;
 
 .hh {
     background-color: #46166C;
-    overflow: auto;
     color: white;
     list-style-type: none;
     border-top: 1px solid #612b8a;
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: rgb(97, 43, 138);
-    width:100vw;
+    width:100%;
 }
 
 .fo {
