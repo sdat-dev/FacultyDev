@@ -113,20 +113,20 @@ function getAccordiationData(p) {
         if (distinctCategories[k] == 'NSF') {
             length = NSF_arr.length;
             arr = NSF_arr;
-            img_url = "assets/logos/nsf.png";
+            img_url = "assets/logos-funding-opportunities/nsf.png";
         }
 
         if (distinctCategories[k] == 'NIH') {
             length = NIH_arr.length;
             arr = NIH_arr;
-            img_url = "assets/logos/NIH-logo.png";
+            img_url = "assets/logos-funding-opportunities/NIH-logo.png";
 
 
         }
         if (distinctCategories[k] == 'Federal - Others') {
             length = federal_arr.length;
             arr = federal_arr;
-            img_url = "assets/logos/SPIN_logo.png";
+            img_url = "assets/logos-funding-opportunities/SPIN_logo.png";
 
         }
 
@@ -134,7 +134,7 @@ function getAccordiationData(p) {
         if (distinctCategories[k] == 'Others') {
             length = others.length;
             arr = others;
-            img_url = "assets/logos/SPIN_logo.png"
+            img_url = "assets/logos-funding-opportunities/SPIN_logo.png"
 
         }
 
