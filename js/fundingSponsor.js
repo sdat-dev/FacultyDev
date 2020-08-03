@@ -1,4 +1,4 @@
-    var requesturl = "https://spin.infoedglobal.com/Service/ProgramSearch";
+    let requestURL = "https://spin.infoedglobal.com/Service/ProgramSearch";
     var data = {
         PublicKey: "96183961-68B2-4B14-AEA3-376E734380CD",
         InstCode: "SUNYALB",
@@ -14,8 +14,8 @@
     };
 
 
-    var params = new URLSearchParams(data).toString();
-    var final_url = requesturl + '?' + params;
+    let params = new URLSearchParams(data).toString();
+    let final_url = requestURL + '?' + params;
 
     $.ajax({
         url: final_url,
@@ -160,7 +160,7 @@ function getAccordiationData(p) {
 
 
 
-var generateFederalAccordionContent = function (arr, img_url, funding_name) {
+let generateFederalAccordionContent = function (arr, img_url, funding_name) {
     let content = '';
     var today = new Date();
     var flag = false;
@@ -371,7 +371,7 @@ var generateFederalAccordionContent = function (arr, img_url, funding_name) {
 }
 
 
-var generateAccordionElement = function (divId, bootlabelId, accordionHeader, accordionContent) {
+let generateAccordionElement = function (divId, bootlabelId, accordionHeader, accordionContent) {
     let accordionElem = '<div class = "card"><div class="card-header" id="' + bootlabelId + '">' +
         '<button class="btn btn-link" type="button" data-toggle="collapse"  data-target="#' + divId + '" aria-expanded="true" aria-controls="' + divId + '">' +
         '<h3 class = "content-header-no-margin">' + accordionHeader + '<i class="fas fa-chevron-down"></i></h3></button></div>'
@@ -382,7 +382,7 @@ var generateAccordionElement = function (divId, bootlabelId, accordionHeader, ac
 
 
 
-var getImageName = function (sponser_name) {
+let getImageName = function (sponser_name) {
 
 
     if (sponser_name.split(" ").length == 1) {
@@ -393,7 +393,7 @@ var getImageName = function (sponser_name) {
 }
 
 
-var checkFileExists = function (url) {
+let checkFileExists = function (url) {
     var xhr = new XMLHttpRequest();
     xhr.open('HEAD', url, false);
     xhr.send();
