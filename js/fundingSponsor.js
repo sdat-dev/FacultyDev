@@ -4,7 +4,7 @@
         InstCode: "SUNYALB",
         signature: "97707afe4847b9862f27c9ce80a9cb6e",
         responseFormat: 'JSONP',
-        pageSize: 1000,
+        pageSize: 3000,
         columns: ["synopsis", "id", "spon_name", "NextDeadlineDate", "total_funding_limit", "programurl", "sponsor_type", "prog_title", "    "],
         isCrossDomain: true,
         callback: 'parseData',
