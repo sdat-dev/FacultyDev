@@ -3,13 +3,15 @@
         PublicKey: "96183961-68B2-4B14-AEA3-376E734380CD",
         InstCode: "SUNYALB",
         signature: "97707afe4847b9862f27c9ce80a9cb6e",
-        keywords: '[SOLR]keyword_exact:"Coronavirus/COVID-19" AND NOT keyword_exact:"COVID-19 Non-Research Resources"',
         responseFormat: 'JSONP',
         pageSize: 1000,
         columns: ["synopsis", "id", "spon_name", "NextDeadlineDate", "total_funding_limit", "programurl", "sponsor_type", "prog_title", "    "],
-        uniqueId: '3AF9322F-EA4D-48DF-9',
         isCrossDomain: true,
-        callback: 'parseData'
+        callback: 'parseData',
+        keywords: "all funding opportunities",
+        uniqueId: '3AF9322F-EA4D-48DF-9'
+
+        
 
     };
 
@@ -192,7 +194,7 @@ let generateFederalAccordionContent = function (arr, img_url, funding_name) {
         if (arr[i].total_funding_limit === 0) {
             Estimated_Funding = "N/A";
         } else {
-            Estimated_Funding = arr[i].total_funding_limit;
+            Estimated_Funding = '$' + arr[i].total_funding_limit;
         }
 
 
@@ -258,6 +260,10 @@ let generateFederalAccordionContent = function (arr, img_url, funding_name) {
 
         if (funding_name === 'Federal - Others') {
 
+
+            var url_image = "assets/logos-funding-opportunities/" + image_name + ".png";
+            var image = new Image(url_image);
+
             if (image_name === "cfgh" ||
                 image_name === "cdc") {
                 img_url = "assets/logos-funding-opportunities/cdc.png";
@@ -268,7 +274,8 @@ let generateFederalAccordionContent = function (arr, img_url, funding_name) {
                 image_name === "dota" ||
                 image_name === "dla" ||
                 image_name === "dova" ||
-                image_name === "dohs"
+                image_name === "dohs" ||
+                image_name === "dod"
             ) {
                 img_url = "assets/logos-funding-opportunities/dod.png";
 
@@ -285,8 +292,17 @@ let generateFederalAccordionContent = function (arr, img_url, funding_name) {
             }
             else {
 
-                img_url = "assets/logos-funding-opportunities/" + image_name + ".png";
 
+                if (checkFileExists(url_image)) {
+                    img_url = url_image;
+
+                }
+                else {
+                    img_url = "assets/logos-funding-opportunities/SPIN_logo.png";
+                   // console.log("ddd");
+                }
+
+               
             }
 
 
