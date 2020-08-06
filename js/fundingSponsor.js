@@ -5,7 +5,7 @@
         signature: "97707afe4847b9862f27c9ce80a9cb6e",
         responseFormat: 'JSONP',
         pageSize: 3000,
-        columns: ["synopsis", "id", "spon_name", "NextDeadlineDate", "total_funding_limit", "programurl", "sponsor_type", "prog_title", "    "],
+        columns: ["synopsis", "id", "spon_name", "NextDeadlineDate", "total_funding_limit", "programurl", "sponsor_type", "prog_title", "revision_date"],
         isCrossDomain: true,
         callback: 'parseData',
         keywords: "all funding opportunities",
@@ -167,6 +167,14 @@ let generateFederalAccordionContent = function (arr, img_url, funding_name) {
     var today = new Date();
     var flag = false;
     var flag_defunct = true;
+
+
+    arr.sort(function(a, b) {
+        var c = new Date(a.revision_date);
+        var d = new Date(b.revision_date);
+        return d-c;
+    });
+    
 
 
     for (let i = 0; i < arr.length; i++) {
@@ -376,7 +384,7 @@ let generateFederalAccordionContent = function (arr, img_url, funding_name) {
                 '<i class="fas fa-dollar-sign"></i> <strong>Estimated Funding: </strong>' + Estimated_Funding +
                 '<br>' +
                 '</div><div class = "col-sm-12 col-md-12 col-lg-12 col-xl-6">' +
-                '<i class="fas fa-calendar-day"></i> <strong>Due Date: </strong>' + dueDate +
+                '<i class="fas fa-calendar-day"></i> <strong>Due Date: </strong>' + dueDate + " -- " + arr[i].revision_date +
                 '<br></div></div></div>' +
                 '<p class = "opp-description">' + description + '</p>' +
                 '<button type = "button" class = "details-button" onclick = "location.href = \'' + arr[i].programurl + '\'">View Details</button></div>';
