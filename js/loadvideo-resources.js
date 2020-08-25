@@ -135,7 +135,7 @@ let buildVideoContent = function(videos){
         if(ampersandPosition != -1)
             youtubelink =  youtubelink.substring(0, ampersandPosition);
         content +=  '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 video-padding-margin">'+
-                    '   <div class="videoWrapper wide-screen"><iframe  src="'+ youtubelink +'" allowfullscreen="true"></iframe></div>' +
+                    '   <div class="videoWrapper wide-screen"><iframe  src="'+ youtubelink +'" allowfullscreen="true" autoplay="false"></iframe></div>' +
                     '   <h5 class="video-title">' + youtubelinks[i].title + '</h5>'+
                     '</div>';
     }
